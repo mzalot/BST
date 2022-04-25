@@ -12,11 +12,15 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
     //use Node's recursive size
     private int size(Node x) {
-
+        if(x == null){
+            return 0;
+        }else{
+            return this.size();
+        }
     }
 
     public boolean isEmpty() {
-
+        return this.size() == 0;
     }
 
     //recursive put wrapper
