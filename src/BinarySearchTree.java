@@ -32,7 +32,24 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     //sets left/right or creates a new node appropriately, returns the
     //modified node n
     private Node<Key, Value> put(Node<Key, Value> n, Key key, Value val) {
-
+        //check if n is null so it doesn't go into the compare to
+        if(n == null){
+            return n;
+        }
+        //create int to see
+        int check = key.compareTo(n.getKey());
+        //if value is greater than zero keep moving it right until it is in the right place
+        if(check > 0){
+            n.setRight(put(n.getRight(), key, val));
+        //if value is less than zero keep moving it left until it is in the right place
+        }else if(check < 0){
+            n.setLeft(put(n.getLeft(), key, val));
+        //once value is in right place set the node there
+        }else{
+            n.setValue(val);
+        }
+        //return changed node
+        return n;
     }
 
     //recursive get wrapper
