@@ -1,3 +1,12 @@
+/**
+ BinarySearchTree
+ The program will create a Binary Search Tree
+ Author: Mareks Zeile
+ Collaborator(s):
+ Collaboration:
+ Date: 4/25/22
+ On My Honor, I confirm that I followed all collaboration policy guidelines, and that the work I am submitting is my own: MZ
+ **/
 public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
     public Node<Key, Value> root;
@@ -124,7 +133,12 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
     //returns the node at the left most left branch of n
     private Node<Key, Value> min(Node<Key, Value> n) {
-
+        //if the left of the node is null it means that we are as far left as possible
+        if(n.getLeft() == null){
+            return n;
+        }else{
+            return min(n.getLeft());
+        }
     }
 
     public Key max() {
@@ -133,7 +147,12 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
     //returns the node at the right most right branch of n
     private Node<Key, Value> max(Node<Key, Value> n) {
-
+        //if the right of the node is null it means that we are as far right as possible
+        if(n.getRight() == null){
+            return n;
+        }else{
+            return max(n.getRight());
+        }
     }
 
     public String toString() {
