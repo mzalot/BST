@@ -20,9 +20,11 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
     //use Node's recursive size
     private int size(Node x) {
+        //if n=null then we have made it to the end of the branch
         if(x == null){
             return 0;
         }else{
+            //get the size of the current node and find the nodes left and right of it
             return x.getSize() + size(x.getLeft()) + size(x.getRight());
         }
     }
@@ -40,7 +42,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     //sets left/right or creates a new node appropriately, returns the
     //modified node n
     private Node<Key, Value> put(Node<Key, Value> n, Key key, Value val) {
-        //check if n is null so it doesn't go into the compare to
+        //check if n is null so creates the new node at that point
         if(n == null){
             n = new Node(key, val, 1);
         }
