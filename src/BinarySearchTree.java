@@ -61,11 +61,37 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     //recursive get
     //returns null if the key does not exist
     private Value get(Node<Key, Value> n, Key key) {
+        //check if n is null so it doesn't go into the compare to
+        if(n == null){
+            return null;
+        }
+        //int to see if whole list of nodes has been gone through
+        int sizeOfTree = this.size();
+        int count = 0;
 
+        //create int to see
+        int check = key.compareTo(n.getKey());
+
+        //move through the nodes to find the key
+
+        //if the amount of times looped is greater than the number of nodes then the key is not there
+        if(count == sizeOfTree){
+           return null;
+        } else if(check > 0){
+            count ++;
+            return get(n.getRight(), key);
+        }else if(check < 0){
+            count++;
+            return get(n.getLeft(), key);
+        }else{
+            return n.getValue();
+        }
     }
 
     public boolean contains(Key key) {
-
+        //use get wrapper to check if the key is there
+        boolean b = get(key) == null;
+        return !b;
     }
 
     public Value remove(Key key) {
