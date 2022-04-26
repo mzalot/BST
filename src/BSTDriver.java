@@ -15,9 +15,9 @@ public class BSTDriver {
         System.out.println("Test the get method(should return null): " + tree.get("hello"));
         System.out.println("Test the contains method(should return false): " + tree.contains("hello"));
         System.out.println("Test the put method");
-        tree.put(1, "Trent");
-        tree.put(2, "August");
-        tree.put(3, "Kevburger");
+        tree.put("Trent", "Dad");
+        tree.put("August", "Pog");
+        tree.put("Kevin", "Kevburger");
         System.out.println("Test the size method(should return 3): " + tree.size());
         System.out.println("Test the isEmpty method(should return false): " + tree.isEmpty());
         System.out.println("Test the get method(should return Trent): " + tree.get(1));

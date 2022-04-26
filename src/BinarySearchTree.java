@@ -12,7 +12,6 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     public Node<Key, Value> root;
 
     public BinarySearchTree() {
-        
     }
 
     public int size() {
@@ -42,11 +41,14 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     //modified node n
     private Node<Key, Value> put(Node<Key, Value> n, Key key, Value val) {
         //check if n is null so it doesn't go into the compare to
-        if(n == null){
-            return n;
+        if(n == null && this.size() == 0){
+            System.out.println("hello");
+            root = new Node(key, val, 1);
+        }else if(n == null){
+            n = new Node(key, val, 1);
         }
         //create int to see
-        int check = key.compareTo(n.getKey());
+        int check = key.compareTo(root.getKey());
         //if value is greater than zero keep moving it right until it is in the right place
         if(check > 0){
             n.setRight(put(n.getRight(), key, val));
@@ -55,7 +57,9 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
             n.setLeft(put(n.getLeft(), key, val));
         //once value is in right place set the node there
         }else{
-            n.setValue(val);
+            //turns out null for unknown reason
+            //n.setValue(val);
+            //n.setKey(key);
         }
         //return changed node
         return n;
@@ -63,14 +67,13 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
     //recursive get wrapper
     public Value get(Key key) {
-
         return get(root, key);
     }
 
     //recursive get
     //returns null if the key does not exist
     private Value get(Node<Key, Value> n, Key key) {
-        //check if n is null so it doesn't go into the compare to
+        //check if n is null
         if(n == null){
             return null;
         }
