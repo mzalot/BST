@@ -1,3 +1,11 @@
+/**
+ Node
+ The program makes a node and was provided for me
+ Author: Ms. Hellman
+ Collaborator(s):
+ Collaboration:
+ Date: 3/25/22
+ **/
 public class Node<Key extends Comparable<Key>, Value> {
 
     private Key key;
